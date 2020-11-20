@@ -17,3 +17,12 @@ public:
         return maxNum;
     }
 };
+
+// 先排序,然后取中间数字
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        return nums[nums.size()/2];
+    }
+};
