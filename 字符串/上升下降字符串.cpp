@@ -10,26 +10,19 @@ public:
             if(c[i])v.push_back(pair<char,int>(char(97+i),c[i]));
         }
         string ret;
-        int i=-1,f=true;
-        int size=v.size();
         while(ret.size()!=s.size()){
-            if(i==-1){
-                i++;
-                f=true;
+            for(int i=0;i<v.size();i++){
+                if(v[i].second){
+                    ret+=v[i].first;
+                    v[i].second--;  
+                }
             }
-            if(i==size){
-                i--;
-                f=false;
+            for(int i=v.size()-1;i>=0;i--){
+                if(v[i].second){
+                    ret+=v[i].first;
+                    v[i].second--;  
+                }
             }
-            if(v[i].second){
-                ret+=v[i].first;
-                v[i].second--;  
-            }
-            if(f){
-                i++;
-            }else{
-                i--;
-            }          
         }
         return ret;
     }
